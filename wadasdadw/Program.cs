@@ -72,13 +72,22 @@ namespace wadasdadw
             #endregion
 
             #region Q7
-            var result = Source.ProductList.Select((p, index) => new { Name = p.ProductName, Position = index + 1 });
+            //var result = Source.ProductList.Select((p, index) => new { Name = p.ProductName, Position = index + 1 });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Position}. {item.Name}");
+            //}
+
+            #endregion
+
+            #region Q8
+            var result = Source.ProductList.OrderBy(c => c.Category).ThenByDescending(c => c.UnitPrice);
 
             foreach (var item in result)
             {
-                Console.WriteLine($"{item.Position}. {item.Name}");
+                Console.WriteLine($"{item.Category} - {item.ProductName} - {item.UnitPrice}");
             }
-            
             #endregion
         }
     }
