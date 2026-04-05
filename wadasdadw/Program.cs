@@ -102,19 +102,31 @@ namespace wadasdadw
             #endregion
 
             #region Q10
-            var result =
-                        from c in Source.CustomerList
-                        from o in c.Orders
-                        where (o.OrderDate.Year > 1997)
-                        select (c.CustomerID, o.OrderDate);
+            //var result =
+            //            from c in Source.CustomerList
+            //            from o in c.Orders
+            //            where (o.OrderDate.Year > 1997)
+            //            select (c.CustomerID, o.OrderDate);
 
-            foreach (var o in result)
-            {
-                Console.WriteLine(o);
-            }
+            //foreach (var o in result)
+            //{
+            //    Console.WriteLine(o);
+            //}
             #endregion
 
+            #region Q11
+            var result = Source.ProductList
+                    .Select((p, index) => new
+                    {
+                        Position = index + 1,
+                        Name = p.ProductName
+                    });
 
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Position}. {item.Name}");
+            }
+            #endregion
         }
     }
 }
