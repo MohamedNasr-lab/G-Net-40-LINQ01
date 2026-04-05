@@ -51,14 +51,25 @@ namespace wadasdadw
             #endregion
 
             #region Q3
-            var result = Source.ProductList.OrderBy(p => p.UnitPrice);
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.ProductName} {item.UnitPrice}");
-            }
+            //var result = Source.ProductList.OrderBy(p => p.UnitPrice);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.ProductName} {item.UnitPrice}");
+            //}
 
             #endregion
 
+            #region Q6
+            var result=Source.ProductList.Select(p=> new 
+            {Name=p.ProductName,
+            Price=p.UnitPrice,
+            StockStatus= p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+            });
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Name} - {item.Price} - {item.StockStatus}");
+            }
+            #endregion
         }
     }
 }
