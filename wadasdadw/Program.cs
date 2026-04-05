@@ -91,15 +91,30 @@ namespace wadasdadw
             #endregion
 
             #region Q9
-            var result = Source.ProductList
-                 .Where(p => p.Category == "Beverages")
-                  .OrderByDescending(p => p.UnitsInStock);
+            //var result = Source.ProductList
+            //     .Where(p => p.Category == "Beverages")
+            //      .OrderByDescending(p => p.UnitsInStock);
 
-            foreach (var item in result)
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($" {item.ProductName} - {item.Category} - {item.UnitsInStock}");
+            //}
+            #endregion
+
+            #region Q10
+            var result =
+                        from c in Source.CustomerList
+                        from o in c.Orders
+                        where (o.OrderDate.Year > 1997)
+                        select (c.CustomerID, o.OrderDate);
+
+            foreach (var o in result)
             {
-                Console.WriteLine($" {item.ProductName} - {item.Category} - {item.UnitsInStock}");
+                Console.WriteLine(o);
             }
             #endregion
+
+
         }
     }
 }
