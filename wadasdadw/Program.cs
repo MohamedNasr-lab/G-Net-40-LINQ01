@@ -24,12 +24,22 @@ namespace wadasdadw
             #endregion
 
             #region Q2
-            var result = Source.ProductList.Select(p => p.ProductName);
+            //var result = Source.ProductList.Select(p => p.ProductName);
 
-            foreach (var name in result)
-            {
-                Console.WriteLine(name);
-            }
+            //foreach (var name in result)
+            //{
+            //    Console.WriteLine(name);
+            //}
+            #endregion
+
+            #region Q4
+
+            var result = Source.ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
+            foreach(var item in result) 
+             {
+                Console.WriteLine(item);
+
+             }
             #endregion
 
 
