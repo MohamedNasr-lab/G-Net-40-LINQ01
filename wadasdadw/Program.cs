@@ -60,15 +60,25 @@ namespace wadasdadw
             #endregion
 
             #region Q6
-            var result=Source.ProductList.Select(p=> new 
-            {Name=p.ProductName,
-            Price=p.UnitPrice,
-            StockStatus= p.UnitsInStock > 0 ? "Available" : "Out of Stock"
-            });
+            //var result=Source.ProductList.Select(p=> new 
+            //{Name=p.ProductName,
+            //Price=p.UnitPrice,
+            //StockStatus= p.UnitsInStock > 0 ? "Available" : "Out of Stock"
+            //});
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Name} - {item.Price} - {item.StockStatus}");
+            //}
+            #endregion
+
+            #region Q7
+            var result = Source.ProductList.Select((p, index) => new { Name = p.ProductName, Position = index + 1 });
+
             foreach (var item in result)
             {
-                Console.WriteLine($"{item.Name} - {item.Price} - {item.StockStatus}");
+                Console.WriteLine($"{item.Position}. {item.Name}");
             }
+            
             #endregion
         }
     }
