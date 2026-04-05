@@ -115,17 +115,31 @@ namespace wadasdadw
             #endregion
 
             #region Q11
-            var result = Source.ProductList
-                    .Select((p, index) => new
-                    {
-                        Position = index + 1,
-                        Name = p.ProductName
-                    });
+            //var result = Source.ProductList
+            //        .Select((p, index) => new
+            //        {
+            //            Position = index + 1,
+            //            Name = p.ProductName
+            //        });
 
-            foreach (var item in result)
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Position}. {item.Name}");
+            //}
+            #endregion
+
+            #region Q12
+            string[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            var result = Arr
+                .OrderBy(w => w.Length)
+                .ThenBy(w => w, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var word in result)
             {
-                Console.WriteLine($"{item.Position}. {item.Name}");
+                Console.WriteLine(word);
             }
+
             #endregion
         }
     }
