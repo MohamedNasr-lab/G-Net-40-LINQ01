@@ -34,14 +34,21 @@ namespace wadasdadw
 
             #region Q4
 
-            var result = Source.ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
-            foreach(var item in result) 
-             {
-                Console.WriteLine(item);
+            //var result = Source.ProductList.Where(p => p.UnitPrice > 10 && p.UnitPrice < 30);
+            //foreach(var item in result) 
+            // {
+            //    Console.WriteLine(item);
 
-             }
+            // }
             #endregion
 
+            #region Q5
+            var result = Source.ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
+            foreach (var unit in result)
+            {
+                Console.WriteLine(unit);
+            }
+            #endregion
 
         }
     }
