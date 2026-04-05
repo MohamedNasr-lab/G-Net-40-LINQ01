@@ -82,11 +82,22 @@ namespace wadasdadw
             #endregion
 
             #region Q8
-            var result = Source.ProductList.OrderBy(c => c.Category).ThenByDescending(c => c.UnitPrice);
+            //var result = Source.ProductList.OrderBy(c => c.Category).ThenByDescending(c => c.UnitPrice);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Category} - {item.ProductName} - {item.UnitPrice}");
+            //}
+            #endregion
+
+            #region Q9
+            var result = Source.ProductList
+                 .Where(p => p.Category == "Beverages")
+                  .OrderByDescending(p => p.UnitsInStock);
 
             foreach (var item in result)
             {
-                Console.WriteLine($"{item.Category} - {item.ProductName} - {item.UnitPrice}");
+                Console.WriteLine($" {item.ProductName} - {item.Category} - {item.UnitsInStock}");
             }
             #endregion
         }
