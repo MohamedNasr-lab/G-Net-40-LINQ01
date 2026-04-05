@@ -43,11 +43,20 @@ namespace wadasdadw
             #endregion
 
             #region Q5
-            var result = Source.ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
-            foreach (var unit in result)
+            //var result = Source.ProductList.Where(p => p.UnitsInStock > 0 && p.Category == "Condiments");
+            //foreach (var unit in result)
+            //{
+            //    Console.WriteLine(unit);
+            //}
+            #endregion
+
+            #region Q3
+            var result = Source.ProductList.OrderBy(p => p.UnitPrice);
+            foreach (var item in result)
             {
-                Console.WriteLine(unit);
+                Console.WriteLine($"{item.ProductName} {item.UnitPrice} ");
             }
+
             #endregion
 
         }
