@@ -54,7 +54,7 @@ namespace wadasdadw
             var result = Source.ProductList.OrderBy(p => p.UnitPrice);
             foreach (var item in result)
             {
-                Console.WriteLine($"{item.ProductName} {item.UnitPrice} ");
+                Console.WriteLine($"{item.ProductName} {item.UnitPrice}");
             }
 
             #endregion
